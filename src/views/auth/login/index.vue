@@ -1,0 +1,95 @@
+<template>
+  <div class="loginwrapper">
+    <div class="lg-inner-column">
+      <div class="left-column relative z-[1]">
+        <div
+          class="absolute top-0 left-0 h-full w-full z-[-1]"
+        >
+          <img
+            :src="sideImg"
+            alt=""
+            class="h-full w-full object-contain"
+          />
+        </div>
+      </div>
+      <div class="right-column relative">
+        <div
+          class="inner-content h-full flex flex-col bg-white dark:bg-slate-900"
+        >
+          <div class="auth-box h-full flex flex-col justify-center">
+            <div class="mobile-logo text-center mb-6 block">
+              <router-link to="/">
+                <img
+                  :src="logo"
+                  alt=""
+                  class="mx-auto"
+                  v-if="!this.$store.themeSettingsStore.isDark"
+                />
+                <img
+                  :src="logoWhite"
+                  alt=""
+                  class="mx-auto"
+                  v-else
+                />
+              </router-link>
+            </div>
+            <div class="text-center 2xl:mb-10 mb-4">
+              <h4 class="font-medium">ลงชื่อเข้าใช้ระบบ</h4>
+              <div class="text-slate-500 text-base">
+                โปรดใช้บัญชีของคุณในการเข้าใช้ระบบ
+              </div>
+            </div>
+            <Signin />
+            <!-- <div
+              class="relative border-b-[#9AA2AF] border-opacity-[16%] border-b pt-6"
+            >
+              <div
+                class="absolute inline-block bg-white dark:bg-slate-800 dark:text-slate-400 left-1/2 top-1/2 transform -translate-x-1/2 px-4 min-w-max text-sm text-slate-500 font-normal"
+              >
+                หรือ ลงชื่อเข้าใช้ระบบด้วย
+              </div>
+            </div>
+            <div class="max-w-[242px] mx-auto mt-8 w-full">
+              <Social />
+            </div> -->
+            <!-- <div
+              class="md:max-w-[345px] mx-auto font-normal text-slate-500 dark:text-slate-400 mt-12 uppercase text-sm"
+            >
+              Don’t have an account? Sign up
+              <router-link
+                to="/register"
+                class="text-slate-900 dark:text-white font-medium hover:underline"
+              >
+                Sign up
+              </router-link>
+            </div> -->
+          </div>
+          <div class="auth-footer text-center">
+            Copyright © 2025 2BE Design, All rights Reserved
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+import Signin from "../common/Signin";
+import Social from "../common/Social";
+// Image Import
+import logoWhite from "@/assets/images/logo/logo-white.png"
+import logo from "@/assets/images/logo/logo.png"
+import sideImg from "@/assets/images/auth/auth-bg.png"
+
+export default {
+  data () {
+    return {
+      logoWhite,logo,sideImg
+    }
+  },
+  components: {
+    Social,
+    Signin,
+  },
+};
+</script>
+<style lang="scss"></style>
